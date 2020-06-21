@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comentarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Local</th>
+      <th>Mailusuario</th>
+      <th>Fechahora</th>
+      <th>Descripcion</th>
+      <th>Puntaje</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comentarios.each do |comentario| %>
+      <tr>
+        <td><%= comentario.local %></td>
+        <td><%= comentario.mailusuario %></td>
+        <td><%= comentario.fechahora %></td>
+        <td><%= comentario.descripcion %></td>
+        <td><%= comentario.puntaje %></td>
+        <td><%= link_to 'Show', comentario %></td>
+        <td><%= link_to 'Edit', edit_comentario_path(comentario) %></td>
+        <td><%= link_to 'Destroy', comentario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Comentario', new_comentario_path %>
+<br>
+<br>
+<%= link_to 'Volver', controller:'welcome', action:'index' %>

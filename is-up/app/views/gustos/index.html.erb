@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gustos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mail1</th>
+      <th>Mail2</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gustos.each do |gusto| %>
+      <tr>
+        <td><%= gusto.mail1 %></td>
+        <td><%= gusto.mail2 %></td>
+        <td><%= gusto.descripcion %></td>
+        <td><%= link_to 'Show', gusto %></td>
+        <td><%= link_to 'Edit', edit_gusto_path(gusto) %></td>
+        <td><%= link_to 'Destroy', gusto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Gusto', new_gusto_path %>
+<br>
+<br>
+<%= link_to 'Volver', controller:'welcome', action:'index' %>

@@ -1,0 +1,61 @@
+<h1>Usuarios de Up</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th>Edad</th>
+    <th>Comuna</th>
+    <th></th>
+    <th></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <% @email=current_user.email %>
+    <% @users = User.all %>
+    <% @users.each do |user| %>
+      <% @contador=0 %>
+
+
+      <% @estados=Equal.all %>
+      <% @estados.each do |estado| %>
+      <%if estado.liker==@email and estado.liked==user.email %>
+        <%@contador+=1%>
+        <%end %>
+        <%end %>
+        <%if @contador==0 %>
+      <td><%= user.nombre %></td>
+      <td><%= user.descripcion%></td>
+      <td><%= user.edad %></td>
+      <td><%= user.comuna %></td>
+      <td><%= button_to 'Like', {:controller => "equals", :action => "create",
+                                 :liker => @email, :liked=> user.email, :estado=>'1'} , :method=>:post  %></td>
+      <td><%= button_to 'Dislike', {:controller => "equals", :action => "create", :liker => @email, :liked=> user.email, :estado=>'0'} , :method=>:post  %></td>
+
+      </tr>
+      <%end %>
+      </tbody>
+      </table>
+    <% end %>
+    <table>
+      <thead>
+      <tr>
+        <th>Liker</th>
+        <th>Liked</th>
+        <th>Estado</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+    <% @estados=Equal.all %>
+    <% @estados.each do |estado| %>
+          <td><%=estado.liker %></td>
+          <td><%=estado.liked %></td>
+          <td><%=estado.estado %></td>
+
+          </tr>
+        <% end %>
+          </tbody>
+          </table>

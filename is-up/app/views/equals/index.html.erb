@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mis Match</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Match</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equals.each do |equal| %>
+    <% @equals.each do |equal2| %>
+    <% if equal.liker==current_user.email and equal.estado==1%>
+    <% if equal2.liker==equal.liked and equal2.liked==current_user.email and equal2.estado==1 %>
+      <tr>
+        <td><%= equal.liked %></td>
+      </tr>
+    <% end %>
+    <% end %>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Volver al inicio", controller: "welcome", action: "index" %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mail1:</strong>
+  <%= @gusto.mail1 %>
+</p>
+
+<p>
+  <strong>Mail2:</strong>
+  <%= @gusto.mail2 %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @gusto.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_gusto_path(@gusto) %> |
+<%= link_to 'Back', gustos_path %>

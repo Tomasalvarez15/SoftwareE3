@@ -1,0 +1,2 @@
+module EqualsHelper
+end

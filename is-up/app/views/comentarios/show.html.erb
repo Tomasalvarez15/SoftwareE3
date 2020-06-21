@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @comentario.local %>
+</p>
+
+<p>
+  <strong>Mailusuario:</strong>
+  <%= @comentario.mailusuario %>
+</p>
+
+<p>
+  <strong>Fechahora:</strong>
+  <%= @comentario.fechahora %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @comentario.descripcion %>
+</p>
+
+<p>
+  <strong>Puntaje:</strong>
+  <%= @comentario.puntaje %>
+</p>
+
+<%= link_to 'Edit', edit_comentario_path(@comentario) %> |
+<%= link_to 'Back', comentarios_path %>

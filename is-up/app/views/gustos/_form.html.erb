@@ -1,0 +1,32 @@
+<%= form_with(model: gusto, local: true) do |form| %>
+  <% if gusto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gusto.errors.count, "error") %> prohibited this gusto from being saved:</h2>
+
+      <ul>
+      <% gusto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :mail1 %>
+    <%= form.text_field :mail1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mail2 %>
+    <%= form.text_field :mail2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

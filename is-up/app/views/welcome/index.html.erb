@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Up</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<h1>Up</h1>
+<br>
+<body>
+<% if current_user %>
+  <p> Hola, <%=current_user.email %></p>
+  <%= link_to "Cerrar Sesion", destroy_user_session_path, method: 'delete'%>
+  <br>
+  <%= link_to "Borrar mi cuenta", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %>
+  <br>
+  <%= link_to "Ver Usuarios", controller: "users", action: "index" %>
+  <br>
+  <%= link_to "Ver Matches", controller: "equals", action: "index" %>
+<%else  %>
+  <%= link_to "Ingresar", new_user_session_path %>
+  <br>
+  <%= link_to "Registrarse", new_user_registration_path %>
+
+<%end %>
+<br/>
+<br/>
+<br/>
+<%= link_to "Comunas", controller: "comunas", action: "index" %>
+<br/>
+<br/>
+<br/>
+<%= link_to "Locales", controller: "locals", action: "index" %>
+<br/>
+<br/>
+<br/>
+<%= link_to "Gustos", controller: "gustos", action: "index" %>
+<br/>
+<br/>
+<br/>
+<%= link_to "Comentarios", controller: "comentarios", action: "index" %>
+<br/>
+<br/>
+<br/>
+
+<%= yield %>
+</body>
+</html>

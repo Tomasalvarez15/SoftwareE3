@@ -1,0 +1,32 @@
+<%= form_with(model: equal, local: true) do |form| %>
+  <% if equal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(equal.errors.count, "error") %> prohibited this equal from being saved:</h2>
+
+      <ul>
+      <% equal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :liker %>
+    <%= form.text_field :liker %>
+  </div>
+
+  <div class="field">
+    <%= form.label :liked %>
+    <%= form.text_field :liked %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.number_field :estado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
